@@ -1,0 +1,16 @@
+version: '2'
+services:
+    hipstergitlabcisamplemaven-app:
+        image: hipstergitlabcisamplemaven
+        external_links:
+            - hipstergitlabcisamplemaven-postgresql:postgresql
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:postgresql://postgresql:5432/hipsterGitlabCiSampleMaven
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+        ports:
+            - 8080:8080
+    hipstergitlabcisamplemaven-postgresql:
+        extends:
+            file: postgresql.yml
+            service: hipstergitlabcisamplemaven-postgresql
