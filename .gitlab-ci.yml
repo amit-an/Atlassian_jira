@@ -62,7 +62,7 @@ gatling-test:
         - ./mvnw spring-boot:run -Dmaven.repo.local=$MAVEN_USER_HOME &
     artifacts:
         paths:
-            - target/reports/gatling/*
+            - target/gatling/*
 
 maven-repackage:
     stage: package
