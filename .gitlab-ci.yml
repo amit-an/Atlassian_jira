@@ -71,13 +71,6 @@ maven-repackage:
     artifacts:
         paths:
             - target/*.war
-
-
-trigger_build:
-  stage: deploy
-  script:
-    - "curl -X POST -F token=TOKEN -F ref=REF_NAME https://gitlab.com/api/v4/projects/4846884/trigger/pipeline"
-    
      tags:
     - docker
 
