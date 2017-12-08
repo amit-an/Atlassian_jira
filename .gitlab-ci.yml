@@ -72,8 +72,7 @@ maven-repackage:
         paths:
             - target/*.war
 
- tags:
-    - docker
+
 
     
 docker-build:
