@@ -85,5 +85,5 @@ docker-build:
         - cp target/*.war src/main/docker
     script:
         - docker login -u "gitlab-ci-token" -p "$CI_BUILD_TOKEN" registry.gitlab.com
-        - docker build -f src/main/docker/Dockerfile -t registry.gitlab.com/atomfrede/jhipster-ci-example-maven src/main/docker
-        - docker push registry.gitlab.com/atomfrede/jhipster-ci-example-maven
+        - docker build -f src/main/docker/Dockerfile -t registry.gitlab.com/amit-an/jhipster-ci-example-maven src/main/docker
+        - docker push registry.gitlab.com/amit-an/jhipster-ci-example-maven
