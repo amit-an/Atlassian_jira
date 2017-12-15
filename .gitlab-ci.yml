@@ -1,6 +1,4 @@
 image: atomfrede/gitlab-ci-jhipster-stack
-
-
 cache:
   key: "$CI_BUILD_REF_NAME"
   paths:
@@ -34,14 +32,6 @@ gulp-build:
     script:
         - gulp build
         
-sonar_job:
-  image: $CI_REGISTRY/docker/sonar-runner:master
-  stage: test_sonar
-  script:
-    - sonar-runner -Dsonar.host.url=$SONAR_URL -Dsonar.gitlab.commit_sha=$CI_BUILD_REF -Dsonar.gitlab.ref_name=$CI_BUILD_REF_NAME
-  only:
-    - master
-
 maven-test:
     stage: test
     script:
@@ -49,6 +39,19 @@ maven-test:
     artifacts:
         paths:
             - target/surefire-reports/*
+            
+test_sonar_job:
+  stage: test
+  only:
+    - master
+  script:
+#    - cd /builds/jCOTINEAU/sonarqubeIntegrationTest
+    - ls
+    - sleep 60
+    - sonar-scanner -X -Dsonar.analysis.mode=preview -Dsonar.gitlab.commit_sha=$CI_COMMIT_SHA -Dsonar.gitlab.ref_name=$CI_COMMIT_REF_NAME -Dsonar.gitlab.project_id=$CI_PROJECT_ID -Dsonar.gitlab.url=https://gitlab.com -Dsonar.gitlab.user_token=QjX7KV6DQ5E8s5vmbz84 -Dsonar.project.name=$CI_PROJECT_NAME 
+  tags:
+    - docker
+
 
 gulp-test:
     stage: test
