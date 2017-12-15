@@ -43,7 +43,7 @@ maven-test:
 test_sonar_job:
   stage: test
    script:
-#    - cd /builds/jCOTINEAU/sonarqubeIntegrationTest
+    - cd /builds/jCOTINEAU/sonarqubeIntegrationTest
     - ls
     - sleep 60
     - sonar-scanner -X -Dsonar.analysis.mode=preview -Dsonar.gitlab.commit_sha=$CI_COMMIT_SHA -Dsonar.gitlab.ref_name=$CI_COMMIT_REF_NAME -Dsonar.gitlab.project_id=$CI_PROJECT_ID -Dsonar.gitlab.url=https://gitlab.com -Dsonar.gitlab.user_token=QjX7KV6DQ5E8s5vmbz84 -Dsonar.project.name=$CI_PROJECT_NAME 
