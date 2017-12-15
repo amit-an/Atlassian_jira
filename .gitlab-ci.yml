@@ -33,6 +33,14 @@ gulp-build:
     stage: build
     script:
         - gulp build
+        
+sonar_job:
+  image: $CI_REGISTRY/docker/sonar-runner:master
+  stage: test_sonar
+  script:
+    - sonar-runner -Dsonar.host.url=$SONAR_URL -Dsonar.gitlab.commit_sha=$CI_BUILD_REF -Dsonar.gitlab.ref_name=$CI_BUILD_REF_NAME
+  only:
+    - master
 
 maven-test:
     stage: test
