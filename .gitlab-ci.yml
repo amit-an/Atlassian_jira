@@ -42,7 +42,7 @@ maven-test:
             
 test_sonar_job:
   stage: test
-   script:
+  script:
     - cd /builds/jCOTINEAU/sonarqubeIntegrationTest
     - ls
     - sleep 60
